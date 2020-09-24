@@ -42,4 +42,7 @@ while start == "y":
                     cell = Label(root, text=a[i][j]).grid(row=i+l(k), column=j+s-k)
         n += 1
     start = input("Запустить программу еще раз? Чтобы продолжить введите 'y'; для выхода - любую клавишу: ")
-    root.destroy()
+    try:
+        root.destroy()
+    except:
+        pass
