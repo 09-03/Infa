@@ -4,13 +4,13 @@ import random
 
 def click(x):
     global element, lenth
-    text_func = entry_box.get().replace("x", str(x))
+    entry = entry_box.get().lower().replace(" ", "")
+    text_func = entry.replace("x", str(x))
 
     if text_func == "":
         return print("Не введена функция\n--------------------")
 
     for item in text_func:
-        print(item)
         if item not in symbols:
             return print("Использованы неверные символы\n--------------------")
 
@@ -19,6 +19,7 @@ def click(x):
     except:
         return print("Неправильный формат ввода\n--------------------")
 
+    print(f"f(x)={entry}")
     if solution > 0:
         if element == lenth - 1:
             print(f"f({x})={solution}\nСтарый индекс {element} Новый индекс 0\n--------------------")
@@ -60,8 +61,8 @@ symbols = {"%", "*", "(", ")", "-", "+", ".", "/", "x",
 
 cell_label_list=[]
 element = 0
-
 valid_lenth, valid_a, valid_b = False, False, False
+
 while not valid_lenth:
     valid_lenth = True
     try:
