@@ -3,7 +3,7 @@ import random
 
 
 def click(x):
-    global element, lenth
+    global element, length
     entry = entry_box.get().lower().replace(" ", "")
     text_func = entry.replace("x", str(x))
 
@@ -21,7 +21,7 @@ def click(x):
 
     print(f"f(x)={entry}")
     if solution > 0:
-        if element == lenth - 1:
+        if element == length - 1:
             print(f"f({x})={solution}\nСтарый индекс {element} Новый индекс 0\n--------------------")
             element = 0
         else:
@@ -30,8 +30,8 @@ def click(x):
 
     elif solution < 0:
         if element == 0:
-            print(f"f({x})={solution}\nСтарый индекс {element} Новый индекс {lenth - 1}\n--------------------")
-            element = lenth - 1
+            print(f"f({x})={solution}\nСтарый индекс {element} Новый индекс {length - 1}\n--------------------")
+            element = length - 1
         else:
             print(f"f({x})={solution}\nСтарый индекс {element} Новый индекс {element-1}\n--------------------")
             element -= 1
@@ -39,15 +39,15 @@ def click(x):
     else:
         print("Достигнут ноль\n--------------------")
 
-    color_update(element, lenth)
+    color_update(element, length)
 
 
 def clear():
     entry_box.delete(0, END)
 
 
-def color_update(element, lenth):
-    for i in range(lenth):
+def color_update(element, length):
+    for i in range(length):
         if i == element:
             cell_label_list[i].config(fg="green")
         else:
@@ -61,19 +61,19 @@ symbols = {"%", "*", "(", ")", "-", "+", ".", "/", "x",
 
 cell_label_list=[]
 element = 0
-valid_lenth, valid_a, valid_b = False, False, False
+valid_length, valid_a, valid_b = False, False, False
 
-while not valid_lenth:
-    valid_lenth = True
+while not valid_length:
+    valid_length = True
     try:
-        lenth = int(input("Введите количество элементов: "))
-        if lenth <= 0:
+        length = int(input("Введите количество элементов: "))
+        if length <= 0:
             print("--------------------\nВведено неположительное значение\n--------------------")
-            valid_lenth = False
+            valid_length = False
 
     except:
         print("--------------------\nВведено неправильное значение\n--------------------")
-        valid_lenth = False
+        valid_length = False
 
 while not valid_a:
     valid_a = True
@@ -103,9 +103,9 @@ entry_box = Entry()
 button_func = Button(text="Ввод",command = lambda: click(cell_label_list[element].cget("text")))
 button_clear = Button(text="Очистить", command = clear)
 
-for i in range(lenth//10 + 1):
-    if i == lenth//10:
-        for j in range(lenth % 10):
+for i in range(length//10 + 1):
+    if i == length//10:
+        for j in range(length % 10):
             if i == 0 and j == 0:
                 cell = Label(text=random.randint(a,b), fg = "green")
             else:
@@ -124,19 +124,19 @@ for i in range(lenth//10 + 1):
             cell_label_list.append(cell)
             cell_label_list[i*10+j].grid(row=i, column=j,padx = 30, pady = 30)
 
-if lenth < 10:
-    if lenth % 2 == 0:
-        entry_box.grid(row = 1, column = int(lenth/2-1), columnspan = 2)
-        button_func.grid(row = 2, column = int(lenth/2-1), columnspan = 2)
-        button_clear.grid(row = 3, column = int(lenth/2-1), columnspan = 2)
+if length < 10:
+    if length % 2 == 0:
+        entry_box.grid(row = 1, column = int(length/2-1), columnspan = 2)
+        button_func.grid(row = 2, column = int(length/2-1), columnspan = 2)
+        button_clear.grid(row = 3, column = int(length/2-1), columnspan = 2)
     else:
-        entry_box.grid(row = 1, column = int(lenth/2))
-        button_func.grid(row = 2, column = int(lenth/2))
-        button_clear.grid(row = 3, column = int(lenth/2))
+        entry_box.grid(row = 1, column = int(length/2))
+        button_func.grid(row = 2, column = int(length/2))
+        button_clear.grid(row = 3, column = int(length/2))
 
 else:
-    entry_box.grid(row=lenth//10 + 1, column = 4, columnspan = 2)
-    button_func.grid(row=lenth//10 + 2, column = 4, columnspan = 2)
-    button_clear.grid(row=lenth//10 + 3, column = 4, columnspan = 2)
+    entry_box.grid(row=length//10 + 1, column = 4, columnspan = 2)
+    button_func.grid(row=length//10 + 2, column = 4, columnspan = 2)
+    button_clear.grid(row=length//10 + 3, column = 4, columnspan = 2)
 
 root.mainloop()
