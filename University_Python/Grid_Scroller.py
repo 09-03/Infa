@@ -8,36 +8,36 @@ def click(x):
     text_func = entry.replace("x", str(x))
 
     if text_func == "":
-        return print("Не введена функция\n--------------------")
+        return print("Не введена функция", end = "\n--------------------\n")
 
     for item in text_func:
         if item not in symbols:
-            return print("Использованы неверные символы\n--------------------")
+            return print("Использованы неверные символы", end = "\n--------------------\n")
 
     try:
         solution = eval(text_func)
     except:
-        return print("Неправильный формат ввода\n--------------------")
+        return print("Неправильный формат ввода", end = "\n--------------------\n")
 
     print(f"f(x)={entry}")
     if solution > 0:
         if element == length - 1:
-            print(f"f({x})={solution}\nСтарый индекс {element} Новый индекс 0\n--------------------")
+            print(f"f({x})={solution}\nСтарый индекс {element} Новый индекс 0", end = "\n--------------------\n")
             element = 0
         else:
-            print(f"f({x})={solution}\nСтарый индекс {element} Новый индекс {element+1}\n--------------------")
+            print(f"f({x})={solution}\nСтарый индекс {element} Новый индекс {element + 1}", end = "\n--------------------\n")
             element += 1
 
     elif solution < 0:
         if element == 0:
-            print(f"f({x})={solution}\nСтарый индекс {element} Новый индекс {length - 1}\n--------------------")
+            print(f"f({x})={solution}\nСтарый индекс {element} Новый индекс {length - 1}", end = "\n--------------------\n")
             element = length - 1
         else:
-            print(f"f({x})={solution}\nСтарый индекс {element} Новый индекс {element-1}\n--------------------")
+            print(f"f({x})={solution}\nСтарый индекс {element} Новый индекс {element - 1}", end = "\n--------------------\n")
             element -= 1
 
     else:
-        print("Достигнут ноль\n--------------------")
+        print("Достигнут ноль", end = "\n--------------------\n")
 
     color_update(element, length)
 
@@ -68,11 +68,11 @@ while not valid_length:
     try:
         length = int(input("Введите количество элементов: "))
         if length <= 0:
-            print("--------------------\nВведено неположительное значение\n--------------------")
+            print("--------------------\nВведено неположительное значение", end = "\n--------------------\n")
             valid_length = False
 
     except:
-        print("--------------------\nВведено неправильное значение\n--------------------")
+        print("--------------------\nВведено неправильное значение", end = "\n--------------------\n")
         valid_length = False
 
 while not valid_a:
