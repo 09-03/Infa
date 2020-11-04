@@ -2,6 +2,10 @@ from tkinter import *
 import random
 import math
 
+"""
+Если сможете написать триангуляцию точек, 
+неиспользую этих библиотек, то отпишите мне
+"""
 from scipy.spatial import Delaunay
 import matplotlib.pyplot as plt
 import numpy as np
