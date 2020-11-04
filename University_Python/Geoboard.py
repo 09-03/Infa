@@ -38,7 +38,7 @@ def convex_hull(stick_list):
                                  points_set[n][1]*points_set[0][0])/2)
             
             canvas.create_line(points_set[n][0], points_set[n][1],
-                               points_set[0][0], points_set[0][1], width = 2, fill = "green")
+                               points_set[0][0], points_set[0][1], width = 2, fill = "blue")
             
             return abs(convex_hull_area)
         else:
@@ -46,7 +46,7 @@ def convex_hull(stick_list):
                                  points_set[n][1]*points_set[n+1][0])/2)
             
             canvas.create_line(points_set[n][0], points_set[n][1],
-                               points_set[n+1][0], points_set[n+1][1], width = 2, fill = "green")
+                               points_set[n+1][0], points_set[n+1][1], width = 2, fill = "blue")
 
 N = 5
 stick_list = []
