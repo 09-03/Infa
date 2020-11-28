@@ -9,5 +9,5 @@ for i in range(n):
     else:
         list[i][1] = list[i+1][1]
     file = open(f"SecretSanta{i+1}.txt", "w")
-    file.write(f"Ваш номер участника: {list[i][0]}"  + "\n" + f"Вы дарите подарок участнику под номером: {list[i][1]}" + "\n")
+    file.write(f"Ваш номер участника: {list[i][0]}\nВы дарите подарок участнику под номером: {list[i][1]}")
     file.close()
