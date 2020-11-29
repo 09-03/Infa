@@ -1,7 +1,7 @@
 def XOR_cipher():
    char_code = {"0":0, "1":1, "2":2, "3":3, "4":4,
                 "5":5, "6":6, "7":7, "8":8, "9":9,
-                   
+
                 "q":10, "w":11, "e":12, "r":13, "t":14,
                 "y":15, "u":16, "i":17, "o":18, "p":19,
                 "a":20, "s":21, "d":22, "f":23, "g":24,
@@ -32,24 +32,24 @@ def XOR_cipher():
                 "φ":121, "χ":122, "ψ":123, "ω":124, "Ω":125,
                 "£":126, "¥":127
                }
-   
+
    processed_data = ""
    processed_key = []
    i = 0
    data = input("Введите строку для кодирования: ")
    key = input("Введите ключ шифрования: ")
-   
+
    for char in key.lower():
       if char in char_code:
          processed_key.append(char_code[char])
       else:
        return print("Ошибка в ключе")
-   
+
    for char in data.lower():
       if char in char_code:
          for item, value in char_code.items():
             if value == (processed_key[i] ^ char_code[char]):
-               processed_data += item      
+               processed_data += item
       else:
        return print("Ошибка в data")
       if i+1 == len(key):

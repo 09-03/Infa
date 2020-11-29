@@ -10,13 +10,13 @@ def GrahamScan(stick_list):
         L_upper.append(stick_list[i])
         while len(L_upper) > 2 and not RightTurn(L_upper[-1],L_upper[-2],L_upper[-3]):
             del L_upper[-2]
-            
+
     L_lower = [stick_list[-1], stick_list[-2]]
     for i in range(len(stick_list)-3,-1,-1):
         L_lower.append(stick_list[i])
         while len(L_lower) > 2 and not RightTurn(L_lower[-1],L_lower[-2],L_lower[-3]):
             del L_lower[-2]
-            
+
     del L_lower[0]
     del L_lower[-1]
     L = L_upper + L_lower
@@ -33,15 +33,15 @@ def convex_hull(stick_list):
     convex_hull_area = 0
     if len(stick_list) < 3:
         return convex_hull_area
-    
+
     points_set = GrahamScan(stick_list)
     for n in range(len(points_set)):
         if n == len(points_set)-1:
             convex_hull_area += int((points_set[n][0]*points_set[0][1]-
                                  points_set[n][1]*points_set[0][0])/2)
-            
+
             return abs(convex_hull_area)
-        
+
         else:
             convex_hull_area += int((points_set[n][0]*points_set[n+1][1]-
                                  points_set[n][1]*points_set[n+1][0])/2)
@@ -57,7 +57,7 @@ def stick_placing(N):
                 stick_list.append([x, y])
     return stick_list
 
-            
+
 
 
 def E(N, num_tests):
@@ -69,15 +69,15 @@ def E(N, num_tests):
         area_list.append(convex_hull(sticks))
         if area_list[i] in area_counter:
             area_counter[area_list[i]] += 1
-            
+
         else:
             area_counter[area_list[i]] = 1
-            
+
         print(f"Геодосок сделано: {i+1}/{num_tests}")
 
     for key, value in area_counter.items():
         E+=key*value
-        
+
     E /= (num_tests * 10000)
     print(round(E, 5))
 

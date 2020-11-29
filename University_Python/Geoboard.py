@@ -14,7 +14,7 @@ def GrahamScan(stick_list):
     for i in range(len(stick_list)-3,-1,-1):
         L_lower.append(stick_list[i])
         while len(L_lower) > 2 and not RightTurn(L_lower[-1],L_lower[-2],L_lower[-3]):
-            del L_lower[-2] 
+            del L_lower[-2]
     del L_lower[0]
     del L_lower[-1]
     L = L_upper + L_lower
@@ -36,19 +36,19 @@ def convex_hull(stick_list):
         if n == len(points_set)-1:
             convex_hull_area += int((points_set[n][0]*points_set[0][1]-
                                  points_set[n][1]*points_set[0][0])/2)
-            
+
             canvas.create_line(points_set[n][0], points_set[n][1],
                                points_set[0][0], points_set[0][1], width = 2, fill = "blue")
-            
+
             return abs(convex_hull_area)
         else:
             convex_hull_area += int((points_set[n][0]*points_set[n+1][1]-
                                  points_set[n][1]*points_set[n+1][0])/2)
-            
+
             canvas.create_line(points_set[n][0], points_set[n][1],
                                points_set[n+1][0], points_set[n+1][1], width = 2, fill = "blue")
 
-N = 5
+N = int(input("Введите N: "))
 stick_list = []
 root = Tk()
 canvas = Canvas(root, width = N*100+30 , height = N*100+30, bg = "grey")
@@ -64,5 +64,5 @@ for i in range(N+1):
             x = 15+j*100
             y =15+i*100
             stick_list.append((x, y))
-print(convex_hull(stick_list)/10000)
+print(f"Площадь фигуры: {convex_hull(stick_list)/10000}")
 root.mainloop()
