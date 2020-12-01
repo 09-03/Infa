@@ -15,5 +15,5 @@
 import matplotlib.pyplot as plt
 
 #Построение графика по точкам
-plt.plot([1,2,3,4,5],[1,2,3,4,5])
+plt.plot([1,2,3,4,5],[1,2,3,4,3])
 plt.show()
