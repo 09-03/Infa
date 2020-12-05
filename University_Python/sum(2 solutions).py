@@ -12,7 +12,7 @@ massive = [randint(0,10) for i in range(20)]
 c = int(input("Заданное число C: "))
 
 
-def s_code(massive, c): # Итого ЫO(n) + O(n^2) = O(n^2)
+def s_code(massive, c): # Итого O(n) + O(n^2) = O(n^2)
     massive = list(set(massive)) # O(n)
     for i in range(len(massive)):
         for j in range(1, len(massive)-i):
