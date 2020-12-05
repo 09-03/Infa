@@ -19,7 +19,7 @@
 from random import randint
 
 
-def survival_alg(W): # Для W = 100 С вероятностью 50% выживут 100 волжебников или 99 (с такой же вероятностью)
+def survival_alg(W): # Для W = 100 С вероятностью 100% выживут >= 99 волшебников (Для первого вероятность 50%)
     hats = []
     num_visible_red_hats = 0
     survived_counter = 0
