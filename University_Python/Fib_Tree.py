@@ -11,7 +11,6 @@ class Tree():
         self.factor = self.height * self.level_factor * self.level
         self.ancestor()
 
-
     def ancestor(self):
         if self.level == 1:
             self.draw_node(self.x, self.y)
@@ -19,7 +18,7 @@ class Tree():
         elif self.level == 2:
             canvas.create_line(self.x, self.y,
                                self.x-self.factor, self.y+self.height,
-                               width = 2, fill = "black")
+                               width = 2, fill = "Blue")
 
             self.draw_node(self.x, self.y)
             self.draw_node(self.x-self.factor, self.y+self.height)
@@ -28,14 +27,14 @@ class Tree():
             L_tree = Tree(self.level-1, self.height, self.x-self.factor, self.y + self.height, self.level_factor)
             canvas.create_line(self.x, self.y,
                                self.x-self.factor, self.y+self.height,
-                               width = 2, fill = "black")
+                               width = 2, fill = "Blue")
 
             L_tree.draw_node(L_tree.x, L_tree.y)
 
-            R_tree = Tree(self.level-2, self.height, self.x+self.factor, self.y + self.height, self.level_factor)
+            R_tree = Tree(self.level-2, self.height, self.x+self.factor*self.level_factor, self.y + self.height, self.level_factor)
             canvas.create_line(self.x, self.y,
-                               self.x+self.factor, self.y+self.height,
-                               width = 2, fill = "black")
+                               self.x+self.factor*self.level_factor, self.y+self.height,
+                               width = 2, fill = "Red")
 
             R_tree.draw_node(R_tree.x, R_tree.y)
         else:
@@ -54,6 +53,6 @@ w = 1200
 h = 800
 canvas = Canvas(root, width = w , height = h, bg = "white")
 canvas.pack()
-tree = Tree(7,75, 3*w/5, 20, 0.3)
+tree = Tree(4,80, 5*w/6, 20, 0.3)
 tree.draw_node(tree.x, tree.y)
 root.mainloop()
