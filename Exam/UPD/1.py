@@ -3,7 +3,7 @@
 предварительно проверив не совпадает ли он.
 """
 import filecmp
-if filecmp.cmp("1.1.txt","1.2.txt"):
+if filecmp.cmp("1.1.txt","1.2.txt", shallow=False):
     print("Контент совпадает")
 else:
     print("Контент не совпадает")

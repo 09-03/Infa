@@ -10,6 +10,14 @@
 ….
 """
 students = input("Введите студентов в формате 'Иванов.A.A' через пробел: ").split()
+gradesstr =[]
+gradeslist=[]
 print("Поставьте оценку студенту: ")
 for student in students:
     grade = input(f"{student} - ")
+    gradesstr.append(f"{student} - {grade}")
+    gradeslist.append([student,grade])
+
+print("--------")
+print(gradesstr)
+print(gradeslist)
